@@ -1,0 +1,24 @@
+.container-cart{
+    height: 45px;
+}
+.cart-container:hover{
+    transform: scale(1.1);
+}
+.container{
+    transition: transform 0.5s;
+    user-select: none;
+}
+
+
+.container-p{
+    background-color: red;
+    color: white;
+    border-radius: 100px;
+    width: auto;
+    height: 20px;
+    position: relative;
+    top: 30px;
+    left: -28px;
+    font-size: 13px;
+    padding: 0px 6px;
+}
