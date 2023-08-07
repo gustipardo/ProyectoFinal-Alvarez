@@ -1,24 +1,37 @@
-.container-cart{
-    height: 45px;
-}
-.cart-container:hover{
-    transform: scale(1.1);
-}
-.container{
+.fixed-bottom-right {
+    position: fixed;
+    bottom: 20px; 
+    right: 20px; 
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 50px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 999; 
+    display: inline-block;
+    height: 55px;
+    width: 55px;
     transition: transform 0.5s;
     user-select: none;
 }
 
+.fixed-bottom-right:hover{
+    transform: scale(1.1);
+}
+
+
 
 .container-p{
+    text-align: center;
     background-color: red;
     color: white;
     border-radius: 100px;
-    width: auto;
-    height: 20px;
+    width: min-content;
+    height: min-content;
     position: relative;
-    top: 30px;
-    left: -28px;
     font-size: 13px;
     padding: 0px 6px;
+    margin: auto;
+    margin-top: 0px;
 }
+
+

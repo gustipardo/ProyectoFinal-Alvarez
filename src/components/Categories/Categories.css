@@ -1,0 +1,9 @@
+
+.categories-container {
+    background-color: #3a3a3a;
+    display: flex;
+    justify-content: center;
+    gap: 20px; 
+    height: auto;
+}
+

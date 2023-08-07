@@ -1,11 +1,11 @@
-import cart from './assets/shopping-cart2.png';
 import './CartWidget.css';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 const CartWidget = () =>{
     return(
-        <div className='container d-flex align-items-end cart-container'>
-            <img className='container-cart' src={cart} alt="cart-widget"/>
-            <p className='container-p'>0</p>
+        <div className='fixed-bottom-right'>
+            <AddShoppingCartIcon sx={{transform: 'scale(1.6)', marginTop: '10px', textAlign: 'center' }}></AddShoppingCartIcon>
+            <p className='container-p' color='primary1'>0</p>
         </div>
     )
 }

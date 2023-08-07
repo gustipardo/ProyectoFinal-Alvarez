@@ -1,8 +1,8 @@
 import './App.css';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import NavBar from './components/NavBar/NavBar';
-import 'bootstrap/dist/css/bootstrap.css';
-
+import { BrowserRouter, Route, Routes, Switch } from "react-router-dom"
+import ResponsiveAppBar from './components/ResponsiveAppBar/ResponsiveAppBar';
+import CartWidget from './components/CartWidget/CartWidget';
+import Products from './components/Products/Products';
 
 
 
@@ -14,16 +14,17 @@ function App() {
     }
 
   return (
-    <div className="App">
-      <NavBar></NavBar>
-      <div className='container'>
-      <ItemListContainer greeting={"Curso de React"} img={links2.React}></ItemListContainer>
-
-      <ItemListContainer greeting={"Curso de JavaScript"} img={links2.JavaScript}></ItemListContainer>
-      
-      <ItemListContainer greeting={"Curso de HTML y CSS"} img={links2.HtmlCss}></ItemListContainer>
+    <BrowserRouter>
+      <div className="App">
+        <ResponsiveAppBar />
+        <Routes>
+          <Route path="/" element={<h1>Home</h1>} />
+          <Route path="/products/:category?" element={<Products />} />
+        </Routes>
+        <CartWidget />
       </div>
-    </div>
+    </BrowserRouter>
+
   
   );
 }

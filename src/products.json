@@ -1,0 +1,73 @@
+{
+  "categorias": [
+    {
+      "nombre": "Programacion",
+      "cursos": [
+        {
+          "id": 1,
+          "nombre": "Introducción a Python",
+          "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
+          "precio": 29.99
+        },
+        {
+          "id": 2,
+          "nombre": "Desarrollo web con JavaScript",
+          "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/800px-JavaScript-logo.png",
+          "precio": 34.99
+        },
+        {
+          "id": 3,
+          "nombre": "Aprende React.js",
+          "imagen": "https://pbs.twimg.com/profile_images/446356636710363136/OYIaJ1KK_400x400.png",
+          "precio": 39.99
+        }
+      ]
+    },
+    {
+      "nombre": "Universidad",
+      "cursos": [
+        {
+          "id": 4,
+          "nombre": "Matemáticas avanzadas",
+          "imagen": "https://static.vecteezy.com/system/resources/previews/020/937/060/non_2x/math-icon-for-your-website-design-logo-app-ui-free-vector.jpg",
+          "precio": 49.99
+        },
+        {
+          "id": 5,
+          "nombre": "Física para ingenieros",
+          "imagen": "https://static.vecteezy.com/system/resources/previews/009/929/275/non_2x/physics-icon-logo-illustration-molecule-symbol-template-for-graphic-and-web-design-collection-vector.jpg",
+          "precio": 44.99
+        },
+        {
+          "id": 6,
+          "nombre": "Historia del arte",
+          "imagen": "https://w7.pngwing.com/pngs/37/255/png-transparent-artist-podcast-art-history-palette-lonely-logo-palette-painting.png",
+          "precio": 19.99
+        }
+      ]
+    },
+    {
+      "nombre": "Pre-Universidad",
+      "cursos": [
+        {
+          "id": 7,
+          "nombre": "Preparación para el examen SAT",
+          "imagen": "https://e7.pngegg.com/pngimages/674/780/png-clipart-sat-act-education-logo-school-blue-text.png",
+          "precio": 59.99
+        },
+        {
+          "id": 8,
+          "nombre": "Química básica",
+          "imagen": "https://play-lh.googleusercontent.com/zyEh1MmrjzZxL-Zx1udozcsOVGyZo3-kXH8ljymp59_NkdkFz5SYMvqRuCp-Halulqg=w240-h480-rw",
+          "precio": 24.99
+        },
+        {
+          "id": 9,
+          "nombre": "Gramática y redacción en español",
+          "imagen": "https://img2.freepng.es/20180531/guc/kisspng-ozel-marmaram-ozel-egitim-okulu-literature-paper-quill-5b0ff65caad589.5952860215277727646998.jpg",
+          "precio": 29.99
+        }
+      ]
+    }
+  ]
+}

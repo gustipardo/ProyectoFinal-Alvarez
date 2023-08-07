@@ -1,9 +1,22 @@
-.card {
-    width: 18rem;
-    margin: 0px 100px;
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+    justify-items: center;
+    margin-top: 36px;
+    
 }
 
-.likes{
-    margin: 0px 20px;
-    font-size: 22px;
+
+.card:hover {
+    transform: scale(1.02);
 }
+
+
+
+.card {
+    width: 100%;
+    transition: transform 0.5s;         
+}
+

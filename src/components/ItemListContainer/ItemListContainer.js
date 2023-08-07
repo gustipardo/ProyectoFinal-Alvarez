@@ -1,34 +1,73 @@
-import { useState } from "react";
-import './ItemListContainer.css';
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import productsData from '../../products.json';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import './ItemListContainer.css'; 
+import AddIcon from '@mui/icons-material/Add';
 
-const ItemListContainer = ({ greeting, img }) => {
+const ItemListContainer = () => {
+  const { category } = useParams();
 
-    const [ count, setCount] = useState(0);
+  const getProductListByCategory = (categoryName) => {
+    const selectedCategory = productsData.categorias.find(
+      (cat) => cat.nombre.toLowerCase() === categoryName.toLowerCase()
+    );
+    return selectedCategory ? selectedCategory.cursos : [];
+  };
 
-        function handleClickPlus(){ 
-            setCount(count+1);
-        }
-        function handleClickSubtract(){ 
-            if(count>=1){
-                setCount(count-1) ;
-            }
-        }
-    return (
-        
-        <div className="card">
-            
-            <img className="card-img-top" src={img} alt="Card image cap"/>
+  const productList = category ? getProductListByCategory(category) : productsData.categorias.flatMap((cat) => cat.cursos);
 
-            <div className="card-body">
-            <h1 className="card-title">{greeting}</h1>
-            <button className="btn btn-outline-danger" onClick={handleClickSubtract}>-</button>
+  return (
+    <div>
+      <div className="card-grid">
+        {productList.map((curso) => (
+          <Card className="card" sx={{ maxWidth: 260 }} key={curso.id}>
+            <CardMedia
+                sx={{
+                  height: 140,
+                  width: '100%',
+                  paddingTop: '56.25%',
+                  position: 'relative',
+                  transition: 'transform 5s'  
+                }}
+                image={curso.imagen}
+                title={curso.nombre}
+              >
+                <img
+                  src={curso.imagen}
+                  alt={curso.nombre}
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    transition: 'transform 5s'   
+                  }}
+                />
+              </CardMedia>
 
-            <span className="likes">Likes {count}</span>
-            <button className="btn btn-outline-danger" onClick={handleClickPlus}>+</button>
-
-            </div>
-        </div>
-    )
-}
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                {curso.nombre}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Share</Button>
+              
+              <Button size="small">Add to Cart <AddIcon sx={{margin: '0px -2px', transform: 'scale(0.8)'}}/></Button>
+            </CardActions>
+          </Card>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default ItemListContainer;
