@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { Navigate, useParams, useNavigate, Link  } from 'react-router-dom';
 import productsData from '../../products.json';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 import './ItemListContainer.css'; 
 import AddIcon from '@mui/icons-material/Add';
 
-const ItemListContainer = () => {
+const ItemListContainer = ({addToCart}) => {
   const { category } = useParams();
 
   const getProductListByCategory = (categoryName) => {
@@ -18,6 +18,11 @@ const ItemListContainer = () => {
       (cat) => cat.nombre.toLowerCase() === categoryName.toLowerCase()
     );
     return selectedCategory ? selectedCategory.cursos : [];
+  };
+
+  const handleMoreInfoClick = (productId) => {
+    console.log("click");
+    Navigate(`/${category}/${productId}`); 
   };
 
   const productList = category ? getProductListByCategory(category) : productsData.categorias.flatMap((cat) => cat.cursos);
@@ -59,9 +64,10 @@ const ItemListContainer = () => {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small">Share</Button>
+              <Button size="small"><Link to={`/product/${curso.id}`} className="more-info-link">More Info</Link></Button>
               
-              <Button size="small">Add to Cart <AddIcon sx={{margin: '0px -2px', transform: 'scale(0.8)'}}/></Button>
+              
+              <Button onClick={addToCart} size="small">Add to Cart <AddIcon sx={{margin: '0px -2px', transform: 'scale(0.8)'}}/></Button>
             </CardActions>
           </Card>
         ))}

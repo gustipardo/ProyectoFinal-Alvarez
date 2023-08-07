@@ -5,13 +5,13 @@ import Categories from '../Categories/Categories';
 import ItemListContainer from '../ItemListContainer/ItemListContainer';
 
 
-const Products = () => {
+const Products = ({addToCart}) => {
 
 
     return (
     <div>
         <Categories/>
-        <ItemListContainer></ItemListContainer>
+        <ItemListContainer addToCart={addToCart}></ItemListContainer>
         <Outlet /> 
     </div>
     )

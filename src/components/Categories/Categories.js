@@ -16,7 +16,7 @@ const Categories = () => {
                 key={categorie}
                 sx={{ color: 'white', display: 'block', margin: '0px 20px' }}
                 component={Link}
-                to={`/products/${categorie}`}
+                to={`/${categorie}`}
                 className="categories-button"
               >
                 {categorie}

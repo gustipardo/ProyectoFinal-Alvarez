@@ -7,19 +7,28 @@
           "id": 1,
           "nombre": "Introducción a Python",
           "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-          "precio": 29.99
+          "precio": 29.99,
+          "descripcion": "Aprende los fundamentos de programación con Python.",
+          "usuarios": 100,
+          "puntaje": 9
         },
         {
           "id": 2,
           "nombre": "Desarrollo web con JavaScript",
           "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/800px-JavaScript-logo.png",
-          "precio": 34.99
+          "precio": 34.99,
+          "descripcion": "Domina el desarrollo web con JavaScript y las tecnologías relacionadas.",
+          "usuarios": 150,
+          "puntaje": 8
         },
         {
           "id": 3,
           "nombre": "Aprende React.js",
           "imagen": "https://pbs.twimg.com/profile_images/446356636710363136/OYIaJ1KK_400x400.png",
-          "precio": 39.99
+          "precio": 39.99,
+          "descripcion": "Descubre cómo construir aplicaciones web modernas con React.js.",
+          "usuarios": 80,
+          "puntaje": 9.5
         }
       ]
     },
@@ -30,19 +39,28 @@
           "id": 4,
           "nombre": "Matemáticas avanzadas",
           "imagen": "https://static.vecteezy.com/system/resources/previews/020/937/060/non_2x/math-icon-for-your-website-design-logo-app-ui-free-vector.jpg",
-          "precio": 49.99
+          "precio": 49.99,
+          "descripcion": "Aprende matemáticas avanzadas para resolver problemas complejos.",
+          "usuarios": 70,
+          "puntaje": 8.5
         },
         {
           "id": 5,
           "nombre": "Física para ingenieros",
           "imagen": "https://static.vecteezy.com/system/resources/previews/009/929/275/non_2x/physics-icon-logo-illustration-molecule-symbol-template-for-graphic-and-web-design-collection-vector.jpg",
-          "precio": 44.99
+          "precio": 44.99,
+          "descripcion": "Descubre los principios fundamentales de la física aplicados a la ingeniería.",
+          "usuarios": 90,
+          "puntaje": 7.8
         },
         {
           "id": 6,
           "nombre": "Historia del arte",
           "imagen": "https://w7.pngwing.com/pngs/37/255/png-transparent-artist-podcast-art-history-palette-lonely-logo-palette-painting.png",
-          "precio": 19.99
+          "precio": 19.99,
+          "descripcion": "Explora la historia del arte y sus diferentes estilos y movimientos.",
+          "usuarios": 50,
+          "puntaje": 9.2
         }
       ]
     },
@@ -53,19 +71,28 @@
           "id": 7,
           "nombre": "Preparación para el examen SAT",
           "imagen": "https://e7.pngegg.com/pngimages/674/780/png-clipart-sat-act-education-logo-school-blue-text.png",
-          "precio": 59.99
+          "precio": 59.99,
+          "descripcion": "Prepárate para el examen SAT y mejora tus resultados.",
+          "usuarios": 120,
+          "puntaje": 8.7
         },
         {
           "id": 8,
           "nombre": "Química básica",
           "imagen": "https://play-lh.googleusercontent.com/zyEh1MmrjzZxL-Zx1udozcsOVGyZo3-kXH8ljymp59_NkdkFz5SYMvqRuCp-Halulqg=w240-h480-rw",
-          "precio": 24.99
+          "precio": 24.99,
+          "descripcion": "Aprende los conceptos básicos de química y su aplicación práctica.",
+          "usuarios": 95,
+          "puntaje": 8.9
         },
         {
           "id": 9,
           "nombre": "Gramática y redacción en español",
           "imagen": "https://img2.freepng.es/20180531/guc/kisspng-ozel-marmaram-ozel-egitim-okulu-literature-paper-quill-5b0ff65caad589.5952860215277727646998.jpg",
-          "precio": 29.99
+          "precio": 29.99,
+          "descripcion": "Mejora tus habilidades de gramática y redacción en español.",
+          "usuarios": 110,
+          "puntaje": 9.3
         }
       ]
     }

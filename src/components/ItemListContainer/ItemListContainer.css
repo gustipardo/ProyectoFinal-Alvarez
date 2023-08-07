@@ -20,3 +20,8 @@
     transition: transform 0.5s;         
 }
 
+
+.more-info-link {
+    text-decoration: none; 
+    color: inherit; 
+}

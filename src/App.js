@@ -3,25 +3,29 @@ import { BrowserRouter, Route, Routes, Switch } from "react-router-dom"
 import ResponsiveAppBar from './components/ResponsiveAppBar/ResponsiveAppBar';
 import CartWidget from './components/CartWidget/CartWidget';
 import Products from './components/Products/Products';
+import Product from './components/Product/Product';
+import { useState } from 'react';
 
 
 
 function App() {
-    const links2 = {
-      React: 'https://www.loginradius.com/blog/static/00a89fc56461ea1529439d89072c93f1/701ee/react.jpg',
-      JavaScript: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png',
-      HtmlCss: 'https://devskiller.com/wp-content/uploads/2020/09/screen-html5-devs.jpg'
-    }
+  const [cartCount, setCartCount] = useState(0);
+
+  const addToCart = () => {
+    setCartCount((prevCount) => prevCount + 1);
+  };
 
   return (
     <BrowserRouter>
       <div className="App">
         <ResponsiveAppBar />
         <Routes>
-          <Route path="/" element={<h1>Home</h1>} />
-          <Route path="/products/:category?" element={<Products />} />
+          <Route path="/:category?" element={<Products addToCart={addToCart}/>} />
+          <Route path="/product/:productoId" element={<Product addToCart={addToCart}/>}/>
+          <Route path="/contact us" element={<h1>Find us in our Github as Gustavo Martin Alvarez</h1>} />
+          <Route path="/about us" element={<h1 >Our mission is...</h1>}/>
         </Routes>
-        <CartWidget />
+        <CartWidget cartCount={cartCount}/>
       </div>
     </BrowserRouter>
 

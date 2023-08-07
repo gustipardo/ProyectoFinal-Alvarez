@@ -19,7 +19,7 @@ import { Link } from 'react-router-dom';
 
 
 
-const pages = ['products']
+const pages = [ 'Contact us', 'about us']
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
