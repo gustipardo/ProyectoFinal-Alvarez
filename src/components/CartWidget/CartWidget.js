@@ -62,15 +62,17 @@ const CartWidget = ({ cartCount }) => {
 
   const calcularTotal = () => {
     let total = 0;
-    if (cartData && cartData.productos) {
-      for (const productId in cartData.productos) {
-        if (cartData.productos.hasOwnProperty(productId)) {
-          total += 10;
+    if (cartArray && cartArray.length > 0) {
+      for (const cartItem of cartArray) {
+        const product = products.find((p) => p.id === cartItem.id);
+        if (product) {
+          total += cartItem.cantidad * product.precio;
         }
       }
     }
-    return total;
+    return total.toFixed(2);
   };
+  
 
   useEffect(() => {
     if (cartData && cartData.productos) {
@@ -224,6 +226,7 @@ const CartWidget = ({ cartCount }) => {
             })}
           </ul>
         </div>
+        <p className="total-p">Total a pagar: ${calcularTotal()}</p>
         <Link to="/checkout">
           <button
             className="checkout-button"

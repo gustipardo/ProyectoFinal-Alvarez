@@ -157,3 +157,9 @@ ul,
   background-color: #1E1E1E; 
   color: #fff;
 }
+.total-p {
+  font-weight: bold;
+  font-size: 18px;
+  color: #333;
+  margin-top: 10px;
+}
