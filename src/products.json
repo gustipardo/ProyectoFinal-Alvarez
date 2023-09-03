@@ -5,7 +5,7 @@
       "cursos": [
         {
           "id": 1,
-          "nombre": "Introducción a Python",
+          "nombre": "Introducción a Python 222",
           "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
           "precio": 29.99,
           "descripcion": "Aprende los fundamentos de programación con Python.",

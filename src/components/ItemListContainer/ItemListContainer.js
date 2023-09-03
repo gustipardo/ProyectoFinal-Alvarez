@@ -1,6 +1,5 @@
-import React from 'react';
-import { Navigate, useParams, useNavigate, Link  } from 'react-router-dom';
-import productsData from '../../products.json';
+import React, { useEffect, useState } from 'react';
+import { useParams, Link  } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -9,29 +8,47 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import './ItemListContainer.css'; 
 import AddIcon from '@mui/icons-material/Add';
+import { getAuthUserUid } from '../googleSingin/firebase';
+import addProductToCart from '../CartWidget/AddCart';
 
-const ItemListContainer = ({addToCart}) => {
-  const { category } = useParams();
 
-  const getProductListByCategory = (categoryName) => {
-    const selectedCategory = productsData.categorias.find(
-      (cat) => cat.nombre.toLowerCase() === categoryName.toLowerCase()
-    );
-    return selectedCategory ? selectedCategory.cursos : [];
-  };
+const ItemListContainer = ({ products }) => {
+  const [userUid, setUserUid] = useState(null);
 
-  const handleMoreInfoClick = (productId) => {
-    console.log("click");
-    Navigate(`/${category}/${productId}`); 
-  };
+  useEffect(() => {
+    getAuthUserUid()
+      .then((uid) => {
+        if (uid) {
+          console.log(`UID del usuario autenticado: ${uid}`);
+          setUserUid(uid);
+        } else {
+          console.log('No hay usuario autenticado');
+        }
+      })
+      .catch((error) => {
+        console.error('Error al obtener el UID del usuario:', error);
+      });
+  }, []);
 
-  const productList = category ? getProductListByCategory(category) : productsData.categorias.flatMap((cat) => cat.cursos);
+
+    
+    const { category } = useParams();
+
+    const filterProductsByCategory = (productos, categoria) => {
+      return productos.filter((producto) =>
+        producto.categoria.toLowerCase() === categoria.toLowerCase()
+      );
+    };
+  
+    const filteredProducts = category
+      ? filterProductsByCategory(products, category)
+      : products;
 
   return (
     <div>
       <div className="card-grid">
-        {productList.map((curso) => (
-          <Card className="card" sx={{ maxWidth: 260 }} key={curso.id}>
+        {filteredProducts.map((product) => (
+          <Card className="card" sx={{ maxWidth: 260 }} key={product.id}>
             <CardMedia
                 sx={{
                   height: 140,
@@ -40,12 +57,12 @@ const ItemListContainer = ({addToCart}) => {
                   position: 'relative',
                   transition: 'transform 5s'  
                 }}
-                image={curso.imagen}
-                title={curso.nombre}
+                image={product.imagen}
+                title={product.nombre}
               >
                 <img
-                  src={curso.imagen}
-                  alt={curso.nombre}
+                  src={product.imagen}
+                  alt={product.nombre}
                   style={{
                     position: 'absolute',
                     top: 0,
@@ -60,14 +77,20 @@ const ItemListContainer = ({addToCart}) => {
 
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                {curso.nombre}
+                {product.nombre}
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small"><Link to={`/product/${curso.id}`} className="more-info-link">More Info</Link></Button>
+              <Button size="small"><Link to={`/product/${product.id}`} className="more-info-link">More Info</Link></Button>
               
               
-              <Button onClick={addToCart} size="small">Add to Cart <AddIcon sx={{margin: '0px -2px', transform: 'scale(0.8)'}}/></Button>
+              <Button
+  onClick={() => addProductToCart(userUid, product.id)}
+  size="small"
+>
+  Add to Cart
+</Button>
+
             </CardActions>
           </Card>
         ))}
